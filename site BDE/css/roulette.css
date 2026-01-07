@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    background: #0f0f0f;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    padding-top: 100px; /*Espace pour la navbar*/ 
+}
+
+/* navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 75px;
+    background-color: #b6231b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 2000;
+    box-sizing: border-box;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+}
+
+.logo-conteneur {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 55px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.titre-principal {
+    font-family: 'Jersey 15', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.liens-navbar {
+    display: flex;
+    gap: 25px;
+}
+
+.liens-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.liens-navbar a:hover {
+    color: #ffd700; /* Colorer quand on passe la souris dessus */
+    border-bottom: 2px solid #ffd700;
+}
+
+body {
+    padding-top: 75px; /* On met une marge pour aps écraser la page avec la navbar */
+    margin: 0;
+}
+
+.contenu-roulette {
+    margin-top: 100px; /* idem */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Roulette */
+.contenu-roulette {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.titre-jeu { color: #b6231b; font-size: 3rem; margin-bottom: 20px; }
+
+.roulette-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+#wheel {
+    background: #222;
+    border-radius: 50%;
+    border: 10px solid #333;
+    max-width: 90vw;
+}
+
+.fleche-selection {
+    font-size: 40px;
+    color: gold;
+    margin-bottom: -15px;
+}
+
+#spinBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 40px;
+    background: #b6231b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 20px;
+    border: 3px solid #b6231b;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.photo-container {
+    width: 250px;
+    height: 250px;
+    border: 4px solid #b6231b;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+#winnerPhoto { width: 100%; height: 100%; object-fit: cover; }
+
+
+/* jetons qui tombent */
+.jeton-poker-global { 
+    position: fixed; 
+    z-index: 9995; 
+    pointer-events: none; 
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    will-change: transform; 
+}
+
+@keyframes animationChuteGlobale {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* traînée du curseur */
+.carte-souris-globale { 
+    position: fixed; 
+    pointer-events: none; 
+    z-index: 9998; 
+    font-size: 24px;
+    color: #b6231b; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    will-change: transform, opacity;
+}
+
+@keyframes flottementCarteGlobal {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--depX), var(--depY)) rotate(var(--rotFin)); opacity: 0; }
+}
